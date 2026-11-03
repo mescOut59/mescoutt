@@ -1,0 +1,41 @@
+---
+import { site, photos, heroStats, img } from '../data/site.js';
+import Sticker from './Sticker.astro';
+---
+<section class="hero" id="top">
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <p class="hero__tag"><span class="dot"></span> {site.tagline} · {site.city}</p>
+      <h1 class="hero__title">
+        <span class="line"><span class="line__in">{site.name}</span></span>
+      </h1>
+      <p class="hero__lead">
+        <span class="line"><span class="line__in">Кофе, от которого</span></span>
+        <span class="line"><span class="line__in">хочется <mark>улыбаться</mark></span></span>
+      </p>
+      <div class="hero__btns">
+        <a href="#menu" class="btn btn--dark magnetic"><span>Смотреть меню</span></a>
+        <a href="#places" class="btn btn--ghost"><span>Адреса</span></a>
+      </div>
+      <ul class="hero__stats">
+        {heroStats.map((s) => <li><b>{s.value}</b><span>{s.label}</span></li>)}
+      </ul>
+    </div>
+
+    <div class="hero__visual">
+      <div class="media hero__arch">
+        <img src={img(photos.hero, 1200)} alt="Бариста рисует латте-арт" fetchpriority="high" />
+      </div>
+      <div class="hero__badge">
+        <svg viewBox="0 0 160 160" class="hero__badge-ring" aria-hidden="true">
+          <defs><path id="badge-circle" d="M80,80 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0" /></defs>
+          <text><textPath href="#badge-circle">свежая обжарка · каждый день · свежая обжарка · каждый день ·</textPath></text>
+        </svg>
+        <div class="media hero__badge-img"><img src={img(photos.heroBadge, 300)} alt="" /></div>
+      </div>
+      <Sticker type="burst" size={110} cls="hero__s1" depth={30} />
+      <Sticker type="bean" size={70} cls="hero__s2" depth={-40} />
+      <Sticker type="flower" size={80} cls="hero__s3" depth={20} />
+    </div>
+  </div>
+</section>

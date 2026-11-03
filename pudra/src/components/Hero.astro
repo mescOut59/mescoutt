@@ -1,0 +1,60 @@
+---
+import { site, photos, heroCards, img } from '../data/site.js';
+import Icon from './Icon.astro';
+---
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero__meta">
+      <span>Салон красоты · {site.city}</span>
+      <span class="hero__meta-mid">001 — волосы · ногти · брови · лицо</span>
+      <span>с 2019</span>
+    </div>
+
+    <h1 class="wordmark hero__word" aria-label={site.fullName} data-fit>
+      {site.name.split('').map((ch, i) => (
+        <span class="wordmark__char" data-i={i}><span>{ch}</span></span>
+      ))}
+    </h1>
+
+    <div class="hero__grid">
+      <div class="hero__side">
+        <p class="hero__lead">
+          Пространство красоты, тишины <span class="serif">и заботы о себе.</span>
+        </p>
+        <p class="hero__sub">Специальные предложения для наших гостей обновляем каждый месяц.</p>
+
+        <div class="hero__btns">
+          <a href={site.bookingUrl} class="btn btn--dark js-book magnetic"><span>Записаться</span></a>
+          <a href="#services" class="btn btn--ghost"><span>Услуги</span></a>
+        </div>
+
+        <div class="hero__cards">
+          {heroCards.map((c) => (
+            <a href="#prices" class="mini-card" data-tab={c.tab} data-cursor="Цены">
+              <div class="media mini-card__img">
+                <img src={img(c.photo, 600)} alt={c.title} />
+              </div>
+              <span class="mini-card__title">{c.title}</span>
+              <span class="mini-card__arrow"><Icon name="arrow" size={16} /></span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="hero__media">
+        <div class="media media--reveal hero__img">
+          <img src={img(photos.hero, 1800)} alt="Портрет девушки" fetchpriority="high" data-parallax="-10" />
+        </div>
+        <div class="hero__socials">
+          <a href={site.telegram} target="_blank" rel="noopener" aria-label="Telegram"><Icon name="plane" /></a>
+          <a href={site.phoneHref} aria-label="Позвонить"><Icon name="phone" /></a>
+          <a href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram"><Icon name="camera" /></a>
+        </div>
+        <div class="media hero__inset">
+          <img src={img(photos.heroInset, 700)} alt="Нежный маникюр" />
+        </div>
+        <a href={site.bookingUrl} class="btn btn--glass hero__book js-book"><span>Записаться</span></a>
+      </div>
+    </div>
+  </div>
+</section>

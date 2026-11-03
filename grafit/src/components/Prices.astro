@@ -1,0 +1,32 @@
+---
+import { prices, site, img } from '../data/site.js';
+---
+<section class="prices section" id="prices">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Прайс</p>
+        <h2 class="h2">Цены <span class="serif">без сюрпризов</span></h2>
+      </div>
+      <p class="section-head__note reveal">Стоимость зависит от категории мастера. Точную цену видно при онлайн-записи.</p>
+    </div>
+
+    <ul class="price-list">
+      {prices.map((p) => (
+        <li class="price-row reveal" data-img={img(p.photo, 600)}>
+          <span class="price-row__name">{p.name}</span>
+          <span class="price-row__time">{p.time}</span>
+          <span class="price-row__price">{p.price}</span>
+          <span class="price-row__arrow" aria-hidden="true">→</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="prices__cta reveal">
+      <a href={site.bookingUrl} class="btn btn--gold js-book magnetic"><span>Выбрать время</span></a>
+    </div>
+  </div>
+
+  <!-- картинка, которая едет за курсором при наведении на строку прайса -->
+  <div class="price-preview" aria-hidden="true"><img alt="" /></div>
+</section>

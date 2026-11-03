@@ -1,0 +1,21 @@
+---
+import { features } from '../data/site.js';
+import Icon from './Icon.astro';
+---
+<section class="features section" id="features">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="h2">Что получает<br />ваш бизнес</h2>
+    </div>
+    <div class="features__grid">
+      {features.map((f, i) => (
+        <article class="feature">
+          <span class="feature__icon"><Icon name={f.icon} /></span>
+          <span class="feature__num">0{i + 1}</span>
+          <h3 class="feature__title">{f.title}</h3>
+          <p class="feature__text">{f.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

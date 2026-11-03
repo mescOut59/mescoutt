@@ -1,0 +1,31 @@
+---
+import { reviews } from '../data/site.js';
+---
+<section class="reviews section" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Отзывы</p>
+        <h2 class="h2">Нам <span class="serif">доверяют</span></h2>
+      </div>
+      <div class="rating reveal">
+        <span class="rating__value">4.9</span>
+        <span class="rating__stars" aria-label="Рейтинг 4.9 из 5">★★★★★</span>
+        <span class="rating__note">средняя оценка<br />на картах</span>
+      </div>
+    </div>
+
+    <div class="reviews__grid">
+      {reviews.map((r) => (
+        <figure class="review reveal">
+          <span class="review__quote serif" aria-hidden="true">“</span>
+          <blockquote class="review__text">{r.text}</blockquote>
+          <figcaption class="review__author">
+            <span>{r.name}</span>
+            <span class="review__source">{r.source}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

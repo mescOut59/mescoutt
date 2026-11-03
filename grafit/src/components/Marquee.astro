@@ -1,0 +1,15 @@
+---
+const words = ['Стрижки', 'Борода', 'Бритьё', 'Фейд', 'Укладка', 'Кофе', 'Без спешки'];
+const { light = false } = Astro.props;
+---
+<div class:list={['marquee', { 'marquee--light': light }]} aria-hidden="true">
+  <div class="marquee__track">
+    {[0, 1].map(() => (
+      <div class="marquee__group">
+        {words.map((w) => (
+          <span class="marquee__item">{w}<i>✦</i></span>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>

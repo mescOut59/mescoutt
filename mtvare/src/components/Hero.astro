@@ -1,0 +1,34 @@
+---
+import { site, photos, img } from '../data/site.js';
+import Mountains from './Mountains.astro';
+---
+<section class="hero" id="top">
+  <div class="hero__bg media">
+    <img src={img(photos.hero, 2200)} alt="Вечерний зал ресторана" fetchpriority="high" />
+  </div>
+  <div class="hero__glow" aria-hidden="true"></div>
+
+  <div class="container hero__content">
+    <span class="hand hero__hand">ужин под луной</span>
+    <p class="hero__kicker">{site.tagline} · с {site.since}</p>
+    <h1 class="hero__title" aria-label={site.name}>
+      {site.name.split('').map((ch) => <span class="hero__char"><span>{ch}</span></span>)}
+    </h1>
+    <p class="hero__sub">Хачапури из дровяной печи, хинкали ручной лепки <br class="br-desk" />и вина Кахетии — до глубокой ночи.</p>
+    <div class="hero__btns">
+      <a href={site.bookingUrl} class="btn btn--gold js-book magnetic"><span>Забронировать стол</span></a>
+      <a href="#menu" class="btn btn--line"><span>Смотреть меню</span></a>
+    </div>
+
+    <div class="hours">
+      <span class="hours__title serif-i">Часы работы</span>
+      <ul class="hours__list">
+        {site.hours.map((h) => (
+          <li class="hours__item"><span class="hours__day">{h.day}</span><span class="hours__time">{h.time}</span></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <Mountains variant="to-olive" />
+</section>

@@ -1,0 +1,14 @@
+---
+import { gallery, img } from '../data/site.js';
+---
+<section class="gallery" aria-label="Фото ресторана">
+  {gallery.map((row, ri) => (
+    <div class:list={['gallery__row', { 'gallery__row--rev': ri === 1 }]}>
+      <div class="gallery__track">
+        {[0, 1].map(() => row.map((id) => (
+          <div class="media gallery__item"><img src={img(id, 700)} alt="" loading="lazy" /></div>
+        )))}
+      </div>
+    </div>
+  ))}
+</section>

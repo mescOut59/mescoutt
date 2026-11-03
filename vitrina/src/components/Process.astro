@@ -1,0 +1,25 @@
+---
+import { process } from '../data/site.js';
+---
+<section class="process section" id="process">
+  <div class="container process__grid">
+    <div class="process__head">
+      <h2 class="h2">Как я<br />работаю</h2>
+      <p class="section-head__note reveal">Понятные шаги — вы всегда знаете, что происходит с вашим сайтом.</p>
+    </div>
+    <div class="steps-wrap">
+    <span class="steps__line" aria-hidden="true"><span></span></span>
+    <ol class="steps">
+      {process.map((s, i) => (
+        <li class="step">
+          <span class="step__num">0{i + 1}</span>
+          <div>
+            <h3 class="step__title">{s.title}</h3>
+            <p class="step__text">{s.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    </div>
+  </div>
+</section>

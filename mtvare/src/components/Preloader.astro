@@ -1,0 +1,11 @@
+---
+import { site } from '../data/site.js';
+import Moon from './Moon.astro';
+---
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <Moon size={96} cls="preloader__moon" />
+    <span class="preloader__name">{site.name}</span>
+    <span class="preloader__meaning">{site.meaning}</span>
+  </div>
+</div>

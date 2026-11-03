@@ -1,0 +1,23 @@
+---
+import { popular, img } from '../data/site.js';
+---
+<section class="popular section" id="popular">
+  <div class="container">
+    <p class="intro-line reveal">Настоящая грузинская кухня <span class="serif-i">в тёплой вечерней подаче</span></p>
+    <div class="section-head">
+      <h2 class="h2">популярное</h2>
+      <a href="#menu" class="link-arrow">всё меню <span>→</span></a>
+    </div>
+    <div class="dishes">
+      {popular.map((d) => (
+        <article class="dish">
+          <div class="media dish__img" data-cursor="В меню">
+            <img src={img(d.photo, 700)} alt={d.name} loading="lazy" />
+          </div>
+          <h3 class="dish__name">{d.name}</h3>
+          <div class="dish__meta"><span>{d.weight}</span><span class="dish__price">{d.price}</span></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+import { site, rotator, works } from '../data/site.js';
+import Icon from './Icon.astro';
+---
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero__top">
+      <p class="status"><span class="status__dot"></span>Открыт для новых проектов</p>
+      <p class="hero__tagline">{site.tagline}</p>
+    </div>
+
+    <h1 class="hero__title">
+      <span class="line"><span class="line__in">Делаю сайты для</span></span>
+      <span class="line">
+        <span class="line__in"><span class="sr-only">{rotator.join(', ')}</span><span class="rotator" aria-hidden="true">
+          {rotator.map((w, i) => <span class:list={['rotator__word', { 'is-active': i === 0 }]} aria-hidden="true">{w}</span>)}
+        </span></span>
+      </span>
+    </h1>
+
+    <div class="hero__bottom">
+      <p class="hero__lead">
+        Любые сайты под ключ: лендинги, сайты-визитки, сайты с онлайн-записью, меню или каталогом.
+        Красиво, быстро и удобно с телефона — чтобы клиент нашёл вас и оставил заявку за минуту.
+      </p>
+      <div class="hero__btns">
+        <a href="#works" class="btn btn--accent btn--lg magnetic"><span>Смотреть работы</span></a>
+        <a href={site.telegram} target="_blank" rel="noopener" class="btn btn--ghost btn--lg"><Icon name="plane" size={18} /><span>Написать в Telegram</span></a>
+      </div>
+    </div>
+
+    <div class="hero__chips" aria-label="Примеры в портфолио">
+      <span class="hero__chips-label">Примеры работ:</span>
+      {works.map((w, i) => (
+        <a href={`#work-${w.id}`} class={`chip-work chip-work--${w.id}`} style={`--i:${i}`}>
+          <span class="chip-work__dot"></span>{w.niche}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

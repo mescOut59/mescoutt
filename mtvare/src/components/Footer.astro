@@ -1,0 +1,15 @@
+---
+import { site, nav } from '../data/site.js';
+import Moon from './Moon.astro';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© {year} {site.fullName}</span>
+    <a href="#top" class="footer__logo" aria-label="Наверх"><Moon size={52} /></a>
+    <nav class="footer__nav" aria-label="Меню в подвале">
+      {nav.map((item) => <a href={item.href} class="link-line">{item.label}</a>)}
+    </nav>
+  </div>
+  <p class="footer__credit container">Фото: Unsplash · демо-проект для портфолио</p>
+</footer>

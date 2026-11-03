@@ -1,0 +1,10 @@
+---
+// Декоративные наклейки (самодельные SVG-формы)
+const { type = 'burst', size = 90, cls = '', depth = 0 } = Astro.props;
+---
+<svg class={`sticker sticker--${type} ${cls}`} width={size} height={size} viewBox="0 0 100 100" data-depth={depth} aria-hidden="true">
+  {type === 'burst' && <path d="M50 2l9 16 17-8 1 19 19 3-10 16 13 13-18 6 3 19-19-2-6 18-13-14-16 10-3-19-19-4 10-16L4 47l17-8-6-18 19 2 2-19 14 12z" />}
+  {type === 'bean' && <><ellipse cx="50" cy="50" rx="30" ry="42" transform="rotate(-25 50 50)" /><path class="sticker__line" d="M36 16c18 18 12 50 28 68" fill="none" stroke-width="5" stroke-linecap="round" /></>}
+  {type === 'flower' && <path d="M50 8c8 0 12 10 12 20 8-6 20-6 24 2s-2 16-10 20c8 4 14 12 10 20s-16 8-24 2c0 10-4 20-12 20s-12-10-12-20c-8 6-20 6-24-2s2-16 10-20c-8-4-14-12-10-20s16-8 24-2c0-10 4-20 12-20z" />}
+  {type === 'heart' && <path d="M50 88S10 62 10 34c0-14 10-24 22-24 9 0 15 5 18 12 3-7 9-12 18-12 12 0 22 10 22 24 0 28-40 54-40 54z" />}
+</svg>

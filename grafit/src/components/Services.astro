@@ -1,0 +1,33 @@
+---
+import { services, img } from '../data/site.js';
+---
+<section class="services" id="services">
+  <div class="services__pin">
+    <div class="container services__head">
+      <div>
+        <p class="eyebrow">Услуги</p>
+        <h2 class="h2">Что мы <span class="serif">делаем</span></h2>
+      </div>
+      <p class="services__hint">
+        <span class="services__line"></span>
+        Листай — карточки едут
+      </p>
+    </div>
+
+    <div class="services__track">
+      {services.map((s, i) => (
+        <article class="pill">
+          <div class="pill__media">
+            <img src={img(s.photo, 800)} alt={s.title} loading="lazy" />
+          </div>
+          <div class="pill__body">
+            <span class="pill__num">0{i + 1}</span>
+            <h3 class="pill__title">{s.title}</h3>
+            <p class="pill__text">{s.text}</p>
+            <span class="pill__price">{s.price}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

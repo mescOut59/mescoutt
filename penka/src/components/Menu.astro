@@ -1,0 +1,36 @@
+---
+import { menu, img } from '../data/site.js';
+---
+<section class="menu-sec section" id="menu">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="h2">меню</h2>
+      <div class="tabs reveal" role="tablist" aria-label="Разделы меню">
+        <span class="tabs__indicator" aria-hidden="true"></span>
+        {menu.map((cat, i) => (
+          <button class:list={['tabs__btn', { 'is-active': i === 0 }]} role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-tab={cat.id}>{cat.label}</button>
+        ))}
+      </div>
+    </div>
+
+    {menu.map((cat, i) => (
+      <div class:list={['menu-panel', { 'is-active': i === 0 }]} role="tabpanel" data-panel={cat.id}>
+        {cat.items.map((it) => (
+          <article class="card tilt">
+            <div class="media card__img">
+              <img src={img(it.photo, 600)} alt={it.name} loading="lazy" />
+              {it.hit && <span class="card__hit">хит</span>}
+            </div>
+            <div class="card__body">
+              <h3 class="card__name">{it.name}</h3>
+              <p class="card__desc">{it.desc}</p>
+              <div class="card__sizes">
+                {it.sizes.map(([s, p]) => <span class="size"><b>{s}</b>{p} ₽</span>)}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+import { services, img } from '../data/site.js';
+import Icon from './Icon.astro';
+---
+<section class="services section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="h2">услуги <span class="serif">салона</span></h2>
+      <p class="section-head__note reveal">Нажмите на услугу, чтобы посмотреть цены</p>
+    </div>
+
+    <div class="bento">
+      {services.map((s) => (
+        <a href="#prices" class:list={['tile', { 'tile--wide': s.wide }]} data-tab={s.tab} data-cursor="Цены">
+          <div class="media tile__img">
+            <img src={img(s.photo, s.wide ? 1200 : 700)} alt={s.title} loading="lazy" />
+          </div>
+          <div class="tile__body">
+            <span class="tile__price">{s.price}</span>
+            <span class="tile__title">{s.title}</span>
+          </div>
+          <span class="tile__arrow"><Icon name="arrow" size={16} /></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+import { site, nav, photos, img } from '../data/site.js';
+import Icon from './Icon.astro';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__photo media">
+      <img src={img(photos.footer, 800)} alt="" loading="lazy" />
+    </div>
+
+    <div class="footer__cols">
+      <div class="footer__col">
+        <span class="footer__logo">{site.name}</span>
+        <nav class="footer__nav" aria-label="Меню в подвале">
+          {nav.map((item) => <a href={item.href} class="link-line">{item.label}</a>)}
+        </nav>
+      </div>
+      <div class="footer__col footer__hours">
+        {site.hours.map((h) => <span><b>{h.days}</b> {h.time}</span>)}
+        <span class="footer__addr">{site.city}, {site.address}</span>
+      </div>
+      <div class="footer__col footer__icons">
+        <a href={site.phoneHref} aria-label="Позвонить"><Icon name="phone" /></a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" aria-label="WhatsApp"><Icon name="chat" /></a>
+        <a href={site.telegram} target="_blank" rel="noopener" aria-label="Telegram"><Icon name="plane" /></a>
+        <a href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram"><Icon name="camera" /></a>
+      </div>
+    </div>
+
+    <div class="wordmark footer__word" aria-hidden="true" data-fit>
+      {site.name.split('').map((ch) => <span class="wordmark__char"><span>{ch}</span></span>)}
+    </div>
+
+    <div class="footer__bottom">
+      <span>© {year} {site.fullName}</span>
+      <a href="#top" class="link-line">наверх ↑</a>
+      <span>Фото: Unsplash · демо-проект</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,41 @@
+---
+import { photos, why, img } from '../data/site.js';
+---
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__text">
+        <h2 class="h2">о нас <span class="serif">и нашем подходе</span></h2>
+        <p class="about__p reveal">
+          Pudra — это не конвейер. Мы записываем гостей с запасом времени, чтобы{' '}
+          <span class="hl">мастер успел выслушать, предложить и сделать без спешки.</span>{' '}
+          Работаем только на профессиональной косметике и честно говорим, что подойдёт именно вам,{' '}
+          <span class="hl">даже если это не самая дорогая услуга.</span>
+        </p>
+        <a href="#masters" class="link-arrow reveal">познакомиться с мастерами <span>↗</span></a>
+
+        <div class="about__smalls">
+          <div class="media media--reveal about__small"><img src={img(photos.aboutSmall1, 500)} alt="Текстура крема" loading="lazy" /></div>
+          <div class="media media--reveal about__small"><img src={img(photos.aboutSmall2, 500)} alt="Аккуратный маникюр" loading="lazy" /></div>
+        </div>
+      </div>
+
+      <div class="media media--reveal about__big">
+        <img src={img(photos.aboutBig, 1400)} alt="Девушка с закрытыми глазами" loading="lazy" data-parallax="-14" />
+      </div>
+    </div>
+
+    <div class="why">
+      <h3 class="why__title reveal">Почему выбирают нас?</h3>
+      <div class="why__grid">
+        {why.map((w, i) => (
+          <article class="why-card reveal">
+            <span class="why-card__num">00{i + 1}</span>
+            <h4 class="why-card__title">{w.title}</h4>
+            <p class="why-card__text">{w.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

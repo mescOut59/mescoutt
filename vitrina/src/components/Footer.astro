@@ -1,0 +1,13 @@
+---
+import { site, nav } from '../data/site.js';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer__row">
+    <span class="logo"><span class="logo__dot"></span>{site.name}</span>
+    <nav class="footer__nav" aria-label="Меню в подвале">
+      {nav.map((item) => <a href={item.href} class="link-line">{item.label}</a>)}
+    </nav>
+    <span class="footer__copy">© {year} · {site.tagline}</span>
+  </div>
+</footer>

@@ -1,0 +1,29 @@
+---
+import { loyalty } from '../data/site.js';
+import Sticker from './Sticker.astro';
+const cells = Array.from({ length: loyalty.total }, (_, i) => i);
+---
+<section class="loyalty section" id="loyalty">
+  <div class="container loyalty__grid">
+    <div class="loyalty__text">
+      <h2 class="h2 loyalty__title">{loyalty.title}</h2>
+      <p class="reveal">{loyalty.text}</p>
+      <p class="loyalty__hint reveal">↓ попробуйте: нажмите на кружки</p>
+    </div>
+    <div class="stamp-card" role="group" aria-label="Карта лояльности">
+      <div class="stamp-card__head">
+        <span class="stamp-card__brand">Пенка</span>
+        <span class="stamp-card__count"><span class="js-stamps">0</span> / {loyalty.total}</span>
+      </div>
+      <div class="stamp-card__grid">
+        {cells.map((i) => (
+          <button class:list={['stamp', { 'stamp--gift': i === loyalty.total - 1 }]} aria-label={i === loyalty.total - 1 ? 'Подарок' : `Штамп ${i + 1}`} aria-pressed="false">
+            <span class="stamp__mark">{i === loyalty.total - 1 ? '🎁' : '☕'}</span>
+          </button>
+        ))}
+      </div>
+      <p class="stamp-card__msg js-stamp-msg">Ещё 5 чашек до подарка</p>
+      <Sticker type="heart" size={64} cls="stamp-card__sticker" />
+    </div>
+  </div>
+</section>

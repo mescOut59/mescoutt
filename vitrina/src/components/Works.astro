@@ -1,0 +1,41 @@
+---
+import { works } from '../data/site.js';
+import Mockup from './Mockup.astro';
+import Icon from './Icon.astro';
+---
+<section class="works section" id="works">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="h2">Работы</h2>
+      <p class="section-head__note reveal">Несколько примеров для разных ниш. Делаю сайты для любой сферы — в каждом свой характер, но одинаково удобная навигация.</p>
+    </div>
+
+    <div class="works__list">
+      {works.map((w, i) => (
+        <article class={`work work--${w.id}`} id={`work-${w.id}`} style={`--i:${i}`}>
+          <div class="work__info">
+            <div class="work__meta">
+              <span class="work__num">0{i + 1}</span>
+              <span class="work__niche">{w.niche}</span>
+            </div>
+            <h3 class="work__name">{w.name}</h3>
+            <p class="work__desc">{w.desc}</p>
+            <ul class="work__tags">{w.tags.map((t) => <li>{t}</li>)}</ul>
+            {w.url ? (
+              <a href={w.url} class="btn btn--work magnetic"><span>Смотреть сайт</span><Icon name="arrow" size={18} /></a>
+            ) : (
+              <span class="work__soon">скоро онлайн</span>
+            )}
+          </div>
+          {w.url ? (
+            <a href={w.url} class="work__visual" data-cursor="Открыть" aria-label={`Открыть сайт ${w.name}`}>
+              <Mockup work={w} />
+            </a>
+          ) : (
+            <div class="work__visual"><Mockup work={w} /></div>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+import { menu, site } from '../data/site.js';
+---
+<section class="menu-sec section" id="menu">
+  <div class="container">
+    <div class="section-head menu-sec__head">
+      <h2 class="h2">меню</h2>
+      <p class="section-head__note reveal">Все блюда готовим под заказ. Хинкали лепим при вас — минимальный заказ от 3 штук.</p>
+    </div>
+
+    <div class="tabs reveal" role="tablist" aria-label="Разделы меню">
+      <span class="tabs__indicator" aria-hidden="true"></span>
+      {menu.map((cat, i) => (
+        <button class:list={['tabs__btn', { 'is-active': i === 0 }]} role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-tab={cat.id}>{cat.label}</button>
+      ))}
+    </div>
+
+    <div class="menu-panels">
+      {menu.map((cat, i) => (
+        <ul class:list={['menu-panel', { 'is-active': i === 0 }]} role="tabpanel" data-panel={cat.id}>
+          {cat.items.map((it) => (
+            <li class="menu-item">
+              <div class="menu-item__top">
+                <span class="menu-item__name">{it.name}</span>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">{it.price}</span>
+              </div>
+              <div class="menu-item__bottom">
+                <span>{it.desc}</span>
+                <span>{it.weight}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+
+    <div class="menu-sec__cta reveal">
+      <a href={site.bookingUrl} class="btn btn--gold js-book magnetic"><span>Забронировать стол</span></a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+import { site, photos, img } from '../data/site.js';
+import Icon from './Icon.astro';
+const { lon, lat, zoom } = site.map;
+const mapSrc = `https://yandex.ru/map-widget/v1/?ll=${lon}%2C${lat}&z=${zoom}&pt=${lon}%2C${lat}%2Cpm2orl`;
+---
+<section class="contacts" id="contacts">
+  <div class="contacts__bg media">
+    <img src={img(photos.contacts, 2000)} alt="" loading="lazy" data-parallax="-16" />
+  </div>
+  <div class="container contacts__inner">
+    <span class="hand">гамарджоба!</span>
+    <h2 class="contacts__title">
+      <span class="line"><span class="line__in">Ждём вас</span></span>
+      <span class="line"><span class="line__in"><span class="serif-i">на ужин</span></span></span>
+    </h2>
+    <div class="contacts__info reveal">
+      <a href={site.phoneHref} class="contacts__item"><Icon name="phone" size={20} /><span><small>Звоните</small>{site.phone}</span></a>
+      <div class="contacts__item"><Icon name="pin" size={20} /><span><small>{site.metro}</small>{site.city}, {site.address}</span></div>
+    </div>
+    <a href={site.bookingUrl} class="btn btn--gold btn--xl js-book magnetic reveal"><span>Забронировать стол</span></a>
+    <p class="contacts__note reveal">{site.bookingNote}</p>
+  </div>
+  <div class="container">
+    <div class="contacts__map media media--reveal">
+      <iframe src={mapSrc} title="Карта: как добраться до ресторана" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>

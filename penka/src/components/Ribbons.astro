@@ -1,0 +1,16 @@
+---
+const a = ['капучино', 'флэт уайт', 'колд брю', 'матча', 'раф', 'круассаны'];
+const b = ['свежая обжарка', 'с 8 утра', 'кофе с собой', 'каждый 6-й в подарок'];
+---
+<div class="ribbons" aria-hidden="true">
+  <div class="ribbon ribbon--a">
+    <div class="ribbon__track">
+      {[0, 1, 2].map(() => a.map((w) => <span class="ribbon__item">{w} <i>✺</i></span>))}
+    </div>
+  </div>
+  <div class="ribbon ribbon--b">
+    <div class="ribbon__track">
+      {[0, 1, 2].map(() => b.map((w) => <span class="ribbon__item">{w} <i>●</i></span>))}
+    </div>
+  </div>
+</div>

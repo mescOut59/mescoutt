@@ -1,0 +1,26 @@
+---
+import { masters, site, img } from '../data/site.js';
+---
+<section class="masters section" id="masters">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="h2">наши <span class="serif">мастера</span></h2>
+      <a href={site.bookingUrl} class="link-arrow js-book">записаться к мастеру <span>↗</span></a>
+    </div>
+
+    <div class="masters__grid">
+      {masters.map((m, i) => (
+        <article class="master">
+          <div class="master__cap">
+            <span>00{i + 1} — {m.name}</span>
+            <span class="master__exp">стаж {m.exp}</span>
+          </div>
+          <a href={site.bookingUrl} class="media master__img js-book" data-cursor="Записаться" aria-label={`Записаться к мастеру ${m.name}`}>
+            <img src={img(m.photo, 800)} alt={`Мастер ${m.name}`} loading="lazy" />
+          </a>
+          <span class="master__role serif">{m.role}</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

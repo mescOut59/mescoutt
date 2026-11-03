@@ -1,0 +1,25 @@
+---
+import { signature, site, photos, img } from '../data/site.js';
+---
+<section class="signature section">
+  <div class="container signature__grid">
+    <div class="signature__text">
+      <span class="hand signature__kicker">{signature.kicker}</span>
+      <h2 class="h2 signature__title">{signature.title}</h2>
+      <p class="signature__p reveal">{signature.text}</p>
+      <div class="signature__btns reveal">
+        <a href={site.bookingUrl} class="btn btn--gold js-book magnetic"><span>Забронировать стол</span></a>
+        <a href="#menu" class="btn btn--line"><span>Меню</span></a>
+      </div>
+    </div>
+    <div class="signature__visual">
+      <svg class="signature__ring" viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="200" cy="200" r="196" fill="none" stroke="currentColor" stroke-width="1" />
+        <circle cx="200" cy="200" r="178" fill="none" stroke="currentColor" stroke-width="0.6" stroke-dasharray="2 8" />
+      </svg>
+      <div class="media signature__dish">
+        <img src={img(photos.signature, 900)} alt="Хачапури по-аджарски с желтком" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>

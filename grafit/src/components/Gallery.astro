@@ -1,0 +1,25 @@
+---
+import { gallery, img } from '../data/site.js';
+---
+<section class="gallery section" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Работы</p>
+        <h2 class="h2">Атмосфера <span class="serif">и результат</span></h2>
+      </div>
+    </div>
+
+    <div class="gallery__cols">
+      {gallery.map((col, ci) => (
+        <div class="gallery__col" data-speed={ci === 1 ? '-14' : '10'}>
+          {col.map((id) => (
+            <div class="media gallery__item" data-cursor="Смотреть">
+              <img src={img(id, 900)} alt="Работа мастеров барбершопа Графит" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

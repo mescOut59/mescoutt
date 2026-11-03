@@ -1,0 +1,25 @@
+---
+import { chef, site, photos, img } from '../data/site.js';
+import Moon from './Moon.astro';
+---
+<section class="chef section" id="chef">
+  <div class="container chef__grid">
+    <div class="media chef__food media--reveal">
+      <img src={img(photos.chefFood, 1400)} alt="Хачапури и хинкали на деревянном столе" loading="lazy" data-parallax="-12" />
+    </div>
+    <div class="chef__card">
+      <div class="chef__brand"><Moon size={30} /><span>{site.name}</span></div>
+      <h2 class="chef__title">В центре всего — <span class="serif-i">наш шеф</span></h2>
+      {chef.text.map((t) => <p class="chef__p">{t}</p>)}
+      <div class="chef__foot">
+        <div class="media chef__photo">
+          <img src={img(photos.chef, 500)} alt={`Шеф-повар ${chef.name}`} loading="lazy" />
+        </div>
+        <div class="chef__sign">
+          <span class="hand chef__note">{chef.note}</span>
+          <span class="chef__name">{chef.name} · {chef.role}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

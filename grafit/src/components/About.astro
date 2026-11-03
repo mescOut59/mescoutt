@@ -1,0 +1,42 @@
+---
+import { photos, stats, img } from '../data/site.js';
+---
+<section class="about section" id="about">
+  <div class="container">
+    <p class="eyebrow">О нас</p>
+    <h2 class="about__statement" data-split>
+      Мы не делаем «как у всех». Мы делаем так, чтобы через три недели стрижка
+      выглядела так же хорошо, как в день визита.
+    </h2>
+
+    <div class="about__grid">
+      <div class="media media--reveal about__img1">
+        <img src={img(photos.about1, 1200)} alt="Барберское кресло у кирпичной стены" loading="lazy" data-parallax="-10" />
+      </div>
+
+      <div class="about__text">
+        <p class="reveal">
+          Каждая стрижка начинается с консультации: мастер смотрит на форму головы,
+          рост волос и ваш образ жизни. Только потом — ножницы.
+        </p>
+        <p class="reveal">
+          Работаем на профессиональной косметике, стерилизуем инструмент после каждого гостя,
+          а запись ведём онлайн — без звонков и ожидания.
+        </p>
+
+        <div class="stats">
+          {stats.map((s) => (
+            <div class="stat reveal">
+              <span class="stat__value"><span class="js-counter" data-to={s.value}>{s.value}</span>{s.suffix}</span>
+              <span class="stat__label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="media media--reveal about__img2">
+        <img src={img(photos.about2, 1000)} alt="Интерьер барбершопа с подвесными лампами" loading="lazy" data-parallax="-16" />
+      </div>
+    </div>
+  </div>
+</section>

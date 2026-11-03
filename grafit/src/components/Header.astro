@@ -1,0 +1,37 @@
+---
+import { site, nav } from '../data/site.js';
+---
+<header class="header">
+  <div class="container header__row">
+    <a href="#top" class="logo" aria-label={site.fullName}>
+      {site.name}<span class="logo__dot">.</span>
+    </a>
+
+    <nav class="header__nav" aria-label="Основное меню">
+      {nav.map((item) => <a href={item.href} class="link-line">{item.label}</a>)}
+    </nav>
+
+    <div class="header__actions">
+      <a href={site.phoneHref} class="header__phone">{site.phone}</a>
+      <a href={site.bookingUrl} class="btn btn--light btn--sm js-book">Записаться</a>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" aria-hidden="true">
+  <nav class="menu__nav">
+    {nav.map((item, i) => (
+      <a href={item.href} class="menu__link">
+        <span class="menu__num">0{i + 1}</span>{item.label}
+      </a>
+    ))}
+  </nav>
+  <div class="menu__foot">
+    <a href={site.phoneHref}>{site.phone}</a>
+    <span>{site.address}</span>
+    <a href={site.bookingUrl} class="btn btn--gold js-book">Записаться онлайн</a>
+  </div>
+</div>

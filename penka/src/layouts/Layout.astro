@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site.js';
+import BackLink from '../components/BackLink.astro';
+
+const { title = `${site.fullName} — ${site.tagline}`, description = site.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#fbf3e6" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Шрифты с кириллицей: Dela Gothic One (заголовки), Onest (текст) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Onest:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+
+    <!-- Включаем анимации только если JS работает. Страховка: если скрипт
+         не запустился за 4 сек — показываем контент без анимаций. -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      setTimeout(function () {
+        if (!window.__siteReady) {
+          document.documentElement.classList.remove('js');
+          document.body.classList.remove('is-loading');
+          var p = document.querySelector('.preloader');
+          if (p) p.remove();
+        }
+      }, 4000);
+    </script>
+  </head>
+  <body class="is-loading">
+    <slot />
+    <BackLink />
+
+    <script>
+      import '../scripts/main.js';
+    </script>
+  </body>
+</html>

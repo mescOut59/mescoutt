@@ -1,0 +1,15 @@
+---
+// Знак ресторана — луна-полумесяц
+const { size = 40, cls = '' } = Astro.props;
+const id = 'm' + Math.random().toString(36).slice(2, 7);
+---
+<svg class={`moon ${cls}`} width={size} height={size} viewBox="0 0 100 100" aria-hidden="true">
+  <defs>
+    <mask id={id}>
+      <rect width="100" height="100" fill="#fff" />
+      <circle class="moon__shadow" cx="66" cy="38" r="34" fill="#000" />
+    </mask>
+  </defs>
+  <circle class="moon__ring" cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.2" />
+  <circle class="moon__body" cx="50" cy="50" r="32" fill="currentColor" mask={`url(#${id})`} />
+</svg>

@@ -1,0 +1,39 @@
+---
+import { prices, site } from '../data/site.js';
+---
+<section class="prices section" id="prices">
+  <div class="container prices__inner">
+    <div class="prices__head">
+      <h2 class="h2">цены <span class="serif">без сюрпризов</span></h2>
+      <p class="section-head__note reveal">Итоговая стоимость зависит от длины волос и категории мастера — её озвучат до начала процедуры.</p>
+    </div>
+
+    <div class="prices__body">
+      <div class="tabs reveal" role="tablist" aria-label="Категории услуг">
+        <span class="tabs__indicator" aria-hidden="true"></span>
+        {prices.map((cat, i) => (
+          <button class:list={['tabs__btn', { 'is-active': i === 0 }]} role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-tab={cat.id}>
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <div class="price-panels">
+        {prices.map((cat, i) => (
+          <ul class:list={['price-panel', { 'is-active': i === 0 }]} role="tabpanel" data-panel={cat.id}>
+            {cat.items.map((it, j) => (
+              <li class="price-item">
+                <span class="price-item__num">00{j + 1}</span>
+                <span class="price-item__name">{it.name}</span>
+                <span class="price-item__dots" aria-hidden="true"></span>
+                <span class="price-item__price">{it.price}</span>
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+
+      <a href={site.bookingUrl} class="btn btn--dark js-book magnetic prices__cta reveal"><span>Записаться на услугу</span></a>
+    </div>
+  </div>
+</section>

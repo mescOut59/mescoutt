@@ -1,0 +1,21 @@
+---
+import { process, img } from '../data/site.js';
+---
+<section class="process" id="process">
+  <div class="process__pin">
+    <div class="container process__head">
+      <h2 class="h2">как рождается <span class="accent">чашка</span></h2>
+      <div class="process__progress" aria-hidden="true"><span></span></div>
+    </div>
+    <div class="process__track">
+      {process.map((p, i) => (
+        <article class="step">
+          <span class="step__num">0{i + 1}</span>
+          <div class="media step__img"><img src={img(p.photo, 800)} alt={p.title} loading="lazy" /></div>
+          <h3 class="step__title">{p.title}</h3>
+          <p class="step__text">{p.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

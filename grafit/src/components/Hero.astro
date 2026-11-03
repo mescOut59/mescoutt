@@ -1,0 +1,59 @@
+---
+import { site, photos, img } from '../data/site.js';
+---
+<section class="hero" id="top">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow">Барбершоп · {site.city} · с 2017</p>
+
+      <h1 class="hero__title">
+        <span class="line"><span class="line__in">Точность</span></span>
+        <span class="line"><span class="line__in">&amp; характер</span></span>
+      </h1>
+
+      <div class="hero__mid">
+        <p class="hero__lead">
+          Графит — место, где мужская стрижка становится ритуалом. Тёмный интерьер,
+          крепкий кофе и мастера, которые не торопятся.
+        </p>
+        <span class="hero__accent serif">стиль.</span>
+      </div>
+
+      <div class="hero__bottom">
+        <address class="hero__address">
+          {site.address}<br />{site.metro}<br />{site.hours}
+        </address>
+        <div class="hero__btns">
+          <a href={site.bookingUrl} class="btn btn--light js-book magnetic"><span>Записаться</span></a>
+          <a href="#services" class="btn btn--ghost"><span>Услуги</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <div class="media media--reveal hero__img">
+        <img
+          src={img(photos.hero, 1400)}
+          alt="Клиент в кресле барбершопа"
+          fetchpriority="high"
+          data-parallax="-12"
+        />
+      </div>
+      <a href="#about" class="hero__scroll" aria-label="Листать вниз">
+        <svg viewBox="0 0 120 120" class="hero__scroll-ring">
+          <defs><path id="circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs>
+          <text><textPath href="#circle">листай вниз · листай вниз · листай вниз ·</textPath></text>
+        </svg>
+        <span class="hero__scroll-arrow">↓</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero__wide">
+      <div class="media hero__wide-img">
+        <img src={img(photos.heroWide, 2000)} alt="Барбер работает опасной бритвой" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>

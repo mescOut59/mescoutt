@@ -1,0 +1,9 @@
+---
+import { site } from '../data/site.js';
+---
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__word">
+    {site.name.split('').map((ch) => <span class="preloader__char"><span>{ch}</span></span>)}
+  </div>
+  <span class="preloader__count"><span class="js-count">0</span></span>
+</div>

@@ -1,0 +1,20 @@
+---
+import { booking } from '../data/site.js';
+---
+<section class="booking section" id="booking">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="h2">Запись клиентов —<br /><span class="accent-text">как вам удобно</span></h2>
+      <p class="section-head__note reveal">Подберу вариант под ваш бизнес, а не под шаблон.</p>
+    </div>
+    <div class="booking__grid">
+      {booking.map((b) => (
+        <article class:list={['plan', { 'plan--accent': b.accent }]}>
+          <h3 class="plan__title">{b.title}</h3>
+          <p class="plan__text">{b.text}</p>
+          <ul class="plan__points">{b.points.map((p) => <li>{p}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+---
+import { masters, site, img } from '../data/site.js';
+---
+<section class="masters section" id="masters">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Команда</p>
+        <h2 class="h2">Наши <span class="serif">мастера</span></h2>
+      </div>
+      <p class="section-head__note reveal">Можно выбрать конкретного мастера при записи — система покажет его свободное время.</p>
+    </div>
+
+    <div class="masters__grid">
+      {masters.map((m, i) => (
+        <article class="master" style={`--i:${i}`}>
+          <div class="media master__img" data-cursor="Записаться">
+            <img src={img(m.photo, 800)} alt={`Барбер ${m.name}`} loading="lazy" />
+            <a href={site.bookingUrl} class="master__book js-book" aria-label={`Записаться к мастеру ${m.name}`}></a>
+          </div>
+          <div class="master__info">
+            <h3 class="master__name">{m.name}</h3>
+            <span class="master__role">{m.role}</span>
+          </div>
+          <span class="master__exp">{m.exp}</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

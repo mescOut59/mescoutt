@@ -1,0 +1,29 @@
+---
+import { site } from '../data/site.js';
+const { lon, lat, zoom } = site.map;
+const mapSrc = `https://yandex.ru/map-widget/v1/?ll=${lon}%2C${lat}&z=${zoom}&pt=${lon}%2C${lat}%2Cpm2dgl`;
+---
+<section class="contacts section" id="contacts">
+  <div class="container contacts__grid">
+    <div class="contacts__info">
+      <p class="eyebrow">Контакты</p>
+      <h2 class="h2">Как нас <span class="serif">найти</span></h2>
+
+      <dl class="contacts__list">
+        <div class="reveal"><dt>Адрес</dt><dd>{site.city}, {site.address}<br /><small>{site.metro}</small></dd></div>
+        <div class="reveal"><dt>Часы</dt><dd>{site.hours}</dd></div>
+        <div class="reveal"><dt>Телефон</dt><dd><a href={site.phoneHref} class="link-line">{site.phone}</a></dd></div>
+      </dl>
+
+      <div class="contacts__socials reveal">
+        <a href={site.telegram} target="_blank" rel="noopener" class="chip">Telegram</a>
+        <a href={site.whatsapp} target="_blank" rel="noopener" class="chip">WhatsApp</a>
+        <a href={site.instagram} target="_blank" rel="noopener" class="chip">Instagram</a>
+      </div>
+    </div>
+
+    <div class="contacts__map media media--reveal">
+      <iframe src={mapSrc} title="Карта: как добраться до барбершопа" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import { wines, photos, img } from '../data/site.js';
+---
+<section class="wine" id="wine">
+  <div class="wine__bg media">
+    <img src={img(photos.wine, 2000)} alt="" loading="lazy" data-parallax="-20" />
+  </div>
+  <div class="container wine__inner">
+    <div class="wine__head">
+      <span class="hand">8000 лет традиции</span>
+      <h2 class="h2">вина <span class="serif-i">Грузии</span></h2>
+      <p class="section-head__note reveal">Винная карта — 60 позиций из Кахетии, Имерети и Рачи, включая вина из квеври.</p>
+    </div>
+    <ul class="wine__list">
+      {wines.map((w) => (
+        <li class="wine-row reveal">
+          <span class="wine-row__name">{w.name}</span>
+          <span class="wine-row__region">{w.region}</span>
+          <span class="wine-row__price">{w.price}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+---
+import { site, photos, img } from '../data/site.js';
+---
+<section class="booking" id="booking">
+  <div class="booking__bg media">
+    <img src={img(photos.booking, 2000)} alt="" loading="lazy" data-parallax="-18" />
+  </div>
+  <div class="container booking__inner">
+    <p class="eyebrow">Онлайн-запись 24/7</p>
+    <h2 class="booking__title">
+      <span class="line"><span class="line__in">Время</span></span>
+      <span class="line"><span class="line__in">выглядеть <span class="serif">лучше</span></span></span>
+    </h2>
+    <p class="booking__text reveal">Выберите мастера, услугу и удобное время — запись займёт меньше минуты.</p>
+    <a href={site.bookingUrl} class="btn btn--gold btn--xl js-book magnetic reveal"><span>Записаться онлайн</span></a>
+  </div>
+</section>

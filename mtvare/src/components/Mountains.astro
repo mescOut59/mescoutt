@@ -1,0 +1,11 @@
+---
+// Горный силуэт-разделитель. Цвета задаются CSS-переменными через класс-вариант.
+const { variant = 'to-olive' } = Astro.props;
+---
+<div class={`mountains mountains--${variant}`} aria-hidden="true">
+  <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
+    <path class="mountains__l1" data-depth="0.6" d="M0 220V112C60 96 110 70 170 86S260 40 330 52 430 96 500 74 590 30 660 46 780 96 860 78 960 34 1040 50 1150 98 1230 76 1360 48 1440 66V220Z" />
+    <path class="mountains__l2" data-depth="0.3" d="M0 220V150C90 128 150 112 240 126S380 98 470 116 610 146 700 126 860 100 950 122 1110 150 1200 132 1350 112 1440 128V220Z" />
+    <path class="mountains__l3" d="M0 220V182C140 166 260 176 380 170S620 188 760 176 1020 164 1140 178 1340 186 1440 176V220Z" />
+  </svg>
+</div>

@@ -1,0 +1,23 @@
+---
+import { reviews } from '../data/site.js';
+---
+<section class="reviews section" id="reviews">
+  <div class="container reviews__inner">
+    <p class="eyebrow reveal">отзывы гостей</p>
+
+    <div class="reviews__slider" aria-live="polite">
+      {reviews.map((r, i) => (
+        <figure class:list={['review', { 'is-active': i === 0 }]} data-index={i}>
+          <blockquote class="review__text">«{r.text}»</blockquote>
+          <figcaption class="review__author">{r.name} <span class="serif">· {r.service}</span></figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <div class="reviews__nav reveal">
+      <button class="round-btn js-prev" aria-label="Предыдущий отзыв">←</button>
+      <span class="reviews__count"><span class="js-current">01</span> / 0{reviews.length}</span>
+      <button class="round-btn js-next" aria-label="Следующий отзыв">→</button>
+    </div>
+  </div>
+</section>

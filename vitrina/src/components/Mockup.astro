@@ -1,0 +1,79 @@
+---
+// Мини-превью сайта, нарисованное кодом в стиле каждой работы.
+// Если у работы задан cover (скриншот), показывается он.
+const { work } = Astro.props;
+const host = `${work.id}.ru`;
+---
+<div class={`mock mock--${work.id}`}>
+  <div class="mock__bar">
+    <span></span><span></span><span></span>
+    <i>{host}</i>
+  </div>
+  <div class="mock__screen">
+    {work.cover ? (
+      <img class="mock__cover" src={work.cover} alt={`Скриншот сайта ${work.name}`} loading="lazy" />
+    ) : (
+      <div class="mock__inner" data-mock-parallax>
+        {work.id === 'grafit' && (
+          <>
+            <div class="m-nav"><b>ГРАФИТ<em>.</em></b><span></span><span></span><span></span><u>ЗАПИСАТЬСЯ</u></div>
+            <div class="m-grafit">
+              <div class="m-grafit__text">
+                <small>— БАРБЕРШОП · МОСКВА</small>
+                <strong>ТОЧНОСТЬ<br />&amp; ХАРАКТЕР</strong>
+                <p><i></i><i></i><i></i></p>
+                <u>ЗАПИСАТЬСЯ</u>
+              </div>
+              <div class="m-grafit__img"><span>стиль.</span></div>
+            </div>
+            <div class="m-grafit__strip"><span>СТРИЖКИ ✦</span><span class="o">БОРОДА</span><span>✦ БРИТЬЁ ✦</span><span class="o">ФЕЙД</span></div>
+          </>
+        )}
+        {work.id === 'pudra' && (
+          <>
+            <div class="m-nav"><span></span><span></span><span></span><b>pudra</b><u>Записаться</u></div>
+            <strong class="m-pudra__word">pudra</strong>
+            <div class="m-pudra">
+              <div class="m-pudra__text">
+                <p>Пространство красоты, тишины <em>и заботы о себе.</em></p>
+                <div class="m-pudra__cards"><span></span><span></span></div>
+              </div>
+              <div class="m-pudra__img"><span class="m-pudra__inset"></span><u>Записаться</u></div>
+            </div>
+          </>
+        )}
+        {work.id === 'mtvare' && (
+          <>
+            <div class="m-nav"><b><span class="m-moon"></span>Мтваре</b><span></span><span></span><span></span><u>Забронировать стол</u></div>
+            <div class="m-mtvare">
+              <em>ужин под луной</em>
+              <strong>Мтваре</strong>
+              <p>Хачапури из дровяной печи и вина Кахетии</p>
+              <u>Забронировать стол</u>
+              <div class="m-mtvare__hours">{['Пн','Вт','Ср','Чт','Пт','Сб','Вс'].map((d) => <span><b>{d}</b>12–23</span>)}</div>
+            </div>
+            <svg class="m-mtvare__mountains" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 60V30C30 22 50 10 80 18S130 4 160 12 210 30 250 20 300 6 330 14 380 28 400 22V60Z" fill="#45462d" />
+              <path d="M0 60V42C40 34 70 30 110 36S180 28 220 34 290 44 330 38 380 32 400 36V60Z" fill="#6b6548" />
+            </svg>
+          </>
+        )}
+        {work.id === 'penka' && (
+          <>
+            <div class="m-nav m-nav--pill"><b>Пенка</b><span></span><span></span><span></span><u>Где мы</u></div>
+            <div class="m-penka">
+              <div class="m-penka__text">
+                <small><i></i>Specialty-кофейня</small>
+                <strong>Пенка</strong>
+                <p>Кофе, от которого хочется <mark>улыбаться</mark></p>
+                <u>Смотреть меню</u>
+              </div>
+              <div class="m-penka__arch"><span class="m-penka__burst"></span><span class="m-penka__badge"></span></div>
+            </div>
+            <div class="m-penka__ribbon"><span>КАПУЧИНО ✺ ФЛЭТ УАЙТ ✺ КОЛД БРЮ ✺ МАТЧА ✺</span></div>
+          </>
+        )}
+      </div>
+    )}
+  </div>
+</div>

@@ -1,0 +1,22 @@
+---
+import { faq } from '../data/site.js';
+import Icon from './Icon.astro';
+---
+<section class="faq section" id="faq">
+  <div class="container faq__grid">
+    <h2 class="h2">Частые<br />вопросы</h2>
+    <div class="faq__list">
+      {faq.map((f, i) => (
+        <div class="faq-item">
+          <button class="faq-item__q" aria-expanded="false" aria-controls={`faq-${i}`} id={`faq-q-${i}`}>
+            <span>{f.q}</span>
+            <span class="faq-item__icon"><Icon name="plus" size={20} /></span>
+          </button>
+          <div class="faq-item__a" id={`faq-${i}`} role="region" aria-labelledby={`faq-q-${i}`}>
+            <div><p>{f.a}</p></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

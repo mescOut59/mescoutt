@@ -1,0 +1,18 @@
+---
+import { vibe, img } from '../data/site.js';
+import Sticker from './Sticker.astro';
+---
+<section class="vibe section">
+  <div class="container">
+    <p class="vibe__quote" data-split>Место, куда заходишь за кофе на пять минут, а остаёшься на час</p>
+    <div class="vibe__grid">
+      {vibe.map((v, i) => (
+        <div class:list={['media vibe__item', `vibe__item--${i + 1}`]}>
+          <img src={img(v.photo, 900)} alt={v.alt} loading="lazy" />
+        </div>
+      ))}
+      <Sticker type="flower" size={90} cls="vibe__s1" />
+      <Sticker type="burst" size={80} cls="vibe__s2" />
+    </div>
+  </div>
+</section>

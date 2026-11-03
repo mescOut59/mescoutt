@@ -1,0 +1,31 @@
+---
+import { site, photos, img } from '../data/site.js';
+import Mountains from './Mountains.astro';
+---
+<section class="about" id="about">
+  <div class="container">
+    <h2 class="h2 about__title">о нас</h2>
+    <div class="about__intro reveal">
+      <p><b>{site.name}</b> — {site.meaning}. Грузинский ресторан, куда приходят надолго: за большой стол, с друзьями, с вином и тостами.</p>
+      <p>Мы готовим по семейным рецептам из Кахетии и Самегрело и не упрощаем то, что веками работало и так.</p>
+    </div>
+
+    <div class="collage">
+      <div class="media collage__big media--reveal">
+        <img src={img(photos.aboutBig, 1800)} alt="Зал ресторана вечером" loading="lazy" data-parallax="-12" />
+      </div>
+      <div class="media collage__s1" data-speed="-90">
+        <img src={img(photos.aboutSmall1, 600)} alt="Бокал красного вина и виноград" loading="lazy" />
+      </div>
+      <div class="media collage__s2" data-speed="-170">
+        <img src={img(photos.aboutSmall2, 700)} alt="Гранаты и фрукты на рынке" loading="lazy" />
+      </div>
+      <span class="hand collage__hand">рецепты бабушки Нино</span>
+    </div>
+
+    <h3 class="about__statement" data-split>
+      Приглашаем в гастрономическое путешествие «Вперёд, в прошлое»
+    </h3>
+  </div>
+  <Mountains variant="to-dark" />
+</section>

@@ -1,0 +1,12 @@
+---
+import { site, nav } from '../data/site.js';
+---
+<header class="header">
+  <div class="container header__row">
+    <a href="#top" class="logo"><span class="logo__dot"></span>{site.name}</a>
+    <nav class="header__nav" aria-label="Основное меню">
+      {nav.map((item) => <a href={item.href} class="link-line">{item.label}</a>)}
+    </nav>
+    <a href="#contact" class="btn btn--dark btn--sm"><span>Обсудить проект</span></a>
+  </div>
+</header>

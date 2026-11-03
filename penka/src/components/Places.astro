@@ -1,0 +1,27 @@
+---
+import { places } from '../data/site.js';
+const mapSrc = (p) => `https://yandex.ru/map-widget/v1/?ll=${p.lon}%2C${p.lat}&z=16&pt=${p.lon}%2C${p.lat}%2Cpm2rdl`;
+const routeHref = (p) => `https://yandex.ru/maps/?rtext=~${p.lat}%2C${p.lon}&rtt=pd`;
+---
+<section class="places section" id="places">
+  <div class="container">
+    <h2 class="h2">где <span class="accent">нас найти</span></h2>
+    <div class="places__grid">
+      <div class="places__list">
+        {places.map((p, i) => (
+          <div class:list={['place', { 'is-active': i === 0 }]}>
+            <button class="place__show" data-map={mapSrc(p)} aria-label={`Показать на карте: ${p.name}`}></button>
+            <span class="place__num">0{i + 1}</span>
+            <span class="place__name">{p.name}</span>
+            <span class="place__addr">{p.address} · {p.metro}</span>
+            <span class="place__hours">{p.hours}</span>
+            <a class="place__route" href={routeHref(p)} target="_blank" rel="noopener">Построить маршрут →</a>
+          </div>
+        ))}
+      </div>
+      <div class="places__map media">
+        <iframe src={mapSrc(places[0])} title="Карта кофеен" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>

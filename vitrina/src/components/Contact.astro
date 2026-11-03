@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site.js';
+import Icon from './Icon.astro';
+---
+<section class="contact" id="contact">
+  <div class="container contact__inner">
+    <p class="contact__kicker">Есть идея или просто хотите узнать, как это может выглядеть?</p>
+    <h2 class="contact__title">
+      <span class="line"><span class="line__in">Обсудим</span></span>
+      <span class="line"><span class="line__in">ваш сайт?</span></span>
+    </h2>
+    <div class="contact__btns">
+      <a href={site.telegram} target="_blank" rel="noopener" class="contact-btn magnetic"><Icon name="plane" /><span><small>Telegram</small>{site.telegramLabel}</span></a>
+      <a href={site.whatsapp} target="_blank" rel="noopener" class="contact-btn magnetic"><Icon name="chat" /><span><small>WhatsApp</small>Написать</span></a>
+      <a href={site.phoneHref} class="contact-btn magnetic"><Icon name="call" /><span><small>Телефон</small>{site.phone}</span></a>
+    </div>
+    <p class="contact__note">Расскажите, чем занимается ваш бизнес — предложу структуру и стиль сайта.</p>
+  </div>
+</section>

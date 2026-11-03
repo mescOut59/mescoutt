@@ -1,0 +1,45 @@
+---
+// Кнопка «← Портфолио» в углу экрана: ведёт обратно на сайт-витрину.
+// Адрес задаётся в site.js (site.portfolioUrl). Пустая строка — кнопки нет.
+import { site } from '../data/site.js';
+---
+{site.portfolioUrl && (
+  <a href={site.portfolioUrl} class="back-link" aria-label="Вернуться в портфолио">
+    <span aria-hidden="true">←</span> Портфолио
+  </a>
+)}
+
+<style>
+  .back-link {
+    position: fixed;
+    left: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    z-index: 80; /* над контентом, но под мобильным меню, шапкой и модалкой */
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 15px;
+    border-radius: 999px;
+    /* обводка цветом фона: видна, когда кнопка над тёмным подвалом */
+    border: 1px solid color-mix(in srgb, var(--bg) 35%, transparent);
+    background: var(--ink);
+    color: var(--bg);
+    font-family: var(--f-body, var(--f-sans, system-ui, sans-serif));
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .back-link:hover { transform: translateY(-2px); }
+  @media (min-width: 768px) {
+    .back-link { left: 24px; bottom: 24px; }
+  }
+  /* место под кнопку в конце подвала, чтобы она не закрывала последнюю строку */
+  :global(body:has(.back-link) .footer)::after {
+    content: '';
+    display: block;
+    height: 56px;
+  }
+</style>

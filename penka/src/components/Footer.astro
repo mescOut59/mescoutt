@@ -1,0 +1,30 @@
+---
+import { site, nav } from '../data/site.js';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <p class="footer__say">Заходите за кофе.<br />Мы уже включили кофемашину.</p>
+      <div class="footer__links">
+        <nav aria-label="Меню в подвале">
+          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+        <div class="footer__social">
+          <a href={site.telegram} target="_blank" rel="noopener">Telegram</a>
+          <a href={site.instagram} target="_blank" rel="noopener">Instagram</a>
+          <a href={site.vk} target="_blank" rel="noopener">ВКонтакте</a>
+          <a href={site.phoneHref}>{site.phone}</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__word" data-fit aria-hidden="true">
+      {site.name.split('').map((ch) => <span class="footer__char"><span>{ch}</span></span>)}
+    </div>
+    <div class="footer__bottom">
+      <span>© {year} {site.fullName}</span>
+      <a href="#top">наверх ↑</a>
+      <span>Фото: Unsplash · демо-проект</span>
+    </div>
+  </div>
+</footer>

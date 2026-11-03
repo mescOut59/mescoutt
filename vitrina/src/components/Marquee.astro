@@ -1,0 +1,12 @@
+---
+const words = ['лендинги', 'сайты-визитки', 'онлайн-запись', 'меню и каталоги', 'сайты для услуг', 'портфолио', 'промо-страницы', 'сайты под ключ'];
+---
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {[0, 1].map(() => (
+      <div class="marquee__group">
+        {words.map((w) => <span class="marquee__item">{w}<i></i></span>)}
+      </div>
+    ))}
+  </div>
+</div>
