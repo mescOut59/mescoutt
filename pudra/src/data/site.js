@@ -9,9 +9,9 @@ export const img = (id, w = 1600) =>
   id.startsWith('/') ? (import.meta.env.BASE_URL + id).replace('//', '/') : `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=75`;
 
 export const site = {
-  // Ссылка кнопки «← Портфолио» (корень общего сайта-витрины).
+  // Ссылка кнопки «← Портфолио»: папка на уровень выше этого сайта (там витрина).
   // Для настоящего сайта клиента поставь '' — кнопка исчезнет.
-  portfolioUrl: '/',
+  portfolioUrl: import.meta.env.BASE_URL.replace(/[^/]+\/$/, ''),
   name: 'pudra',
   fullName: 'Салон красоты Pudra',
   tagline: 'Волосы, ногти, брови, лицо',

@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://mescoutt.github.io',
-  // Сайт лежит в подпапке /mtvare/ общего портфолио на GitHub Pages
-  base: '/mtvare/',
+  site: 'https://mescout59.github.io',
+  // Сайт лежит в подпапке общего портфолио на GitHub Pages:
+  // https://mescout59.github.io/mescoutt/mtvare/  (mescoutt — имя репозитория)
+  base: '/mescoutt/mtvare/',
   // host: true — сайт открывается и по localhost, и по 127.0.0.1, и с телефона в той же Wi-Fi
   server: { host: true },
 });

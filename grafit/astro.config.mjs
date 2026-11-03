@@ -1,8 +1,9 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://mescoutt.github.io',
-  // Сайт лежит в подпапке /grafit/ общего портфолио на GitHub Pages
-  base: '/grafit/',
+  site: 'https://mescout59.github.io',
+  // Сайт лежит в подпапке общего портфолио на GitHub Pages:
+  // https://mescout59.github.io/mescoutt/grafit/  (mescoutt — имя репозитория)
+  base: '/mescoutt/grafit/',
   server: { host: true },
 });

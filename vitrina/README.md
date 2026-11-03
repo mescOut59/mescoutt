@@ -14,7 +14,7 @@ npm install
 npm run dev
 ```
 
-3. Открой http://localhost:4321
+3. Открой http://localhost:4321/mescoutt/
 
 ## Что поменять в первую очередь — `src/data/site.js`
 
@@ -30,8 +30,8 @@ npm run dev
 
 Витрина и 4 работы публикуются одним сайтом на GitHub Pages:
 
-- `https://mescoutt.github.io/` — витрина (эту ссылку отправляешь клиентам)
-- `https://mescoutt.github.io/grafit/`, `/pudra/`, `/mtvare/`, `/penka/` — работы
+- `https://mescout59.github.io/mescoutt/` — витрина (эту ссылку отправляешь клиентам)
+- `https://mescout59.github.io/mescoutt/grafit/`, `/pudra/`, `/mtvare/`, `/penka/` — работы
 
 Ссылки на работы уже стоят в `works[].url`. Работы открываются в той же вкладке,
 а обратно ведёт кнопка «← Портфолио» в углу каждого демо-сайта.

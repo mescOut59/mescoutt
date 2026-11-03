@@ -5,7 +5,7 @@ grafit (барбершоп), pudra (салон красоты), mtvare (груз
 
 ## Стек
 Astro 5 · GSAP + ScrollTrigger (анимации при скролле) · Lenis (плавный скролл) · обычный CSS, без Tailwind.
-Сайт статический, одна страница. Команды: `npm install`, `npm run dev` (localhost:4321/pudra/), `npm run build` (в `dist/`).
+Сайт статический, одна страница. Команды: `npm install`, `npm run dev` (localhost:4321/mescoutt/pudra/), `npm run build` (в `dist/`).
 
 ## Структура
 | Что | Где |
@@ -24,10 +24,10 @@ Astro 5 · GSAP + ScrollTrigger (анимации при скролле) · Leni
 - Иконки: `Icon.astro`.
 
 ## Публикация и кнопка «← Портфолио»
-- Все 5 проектов публикуются одним сайтом на GitHub Pages: витрина в корне `https://mescoutt.github.io/`, этот проект в `/pudra/`.
-- Поэтому в `astro.config.mjs` стоит `base: '/pudra/'`. Локально сайт открывается на `localhost:4321/pudra/`.
+- Все 5 проектов публикуются одним сайтом на GitHub Pages: витрина в корне `https://mescout59.github.io/mescoutt/`, этот проект в `/mescoutt/pudra/`.
+- Поэтому в `astro.config.mjs` стоит `base: '/mescoutt/pudra/'`. Локально сайт открывается на `localhost:4321/mescoutt/pudra/`.
 - Пути к своим файлам из `public/` писать с учётом base: `import.meta.env.BASE_URL` (так сделано для favicon и в `img()` в `site.js`). Голый `/файл` сломается.
-- `BackLink.astro` — кнопка «← Портфолио» внизу слева, ведёт на `site.portfolioUrl` (`'/'`). Пусто — кнопки нет.
+- `BackLink.astro` — кнопка «← Портфолио» внизу слева, ведёт на `site.portfolioUrl` (папка выше, т.е. витрина). Пусто — кнопки нет.
 - Общая сборка: `node scripts/build-all.mjs` в папке «Портфолио» → `_site/`. На GitHub это делает `.github/workflows/deploy.yml` при push в main.
 
 ## Правила

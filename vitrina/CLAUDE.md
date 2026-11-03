@@ -5,7 +5,7 @@ grafit (барбершоп), pudra (салон красоты), mtvare (груз
 
 ## Стек
 Astro 5 · GSAP + ScrollTrigger (анимации при скролле) · Lenis (плавный скролл) · обычный CSS, без Tailwind.
-Сайт статический, одна страница. Команды: `npm install`, `npm run dev` (localhost:4321), `npm run build` (в `dist/`).
+Сайт статический, одна страница. Команды: `npm install`, `npm run dev` (localhost:4321/mescoutt/), `npm run build` (в `dist/`).
 
 ## Структура
 | Что | Где |
@@ -23,7 +23,7 @@ Astro 5 · GSAP + ScrollTrigger (анимации при скролле) · Leni
 - Цен на сайте нет. Контакты в `site` в `site.js`: Telegram @mescoutt, телефон и WhatsApp +7 (919) 116-15-24.
 
 ## Публикация
-- Все 5 проектов публикуются одним сайтом на GitHub Pages `https://mescoutt.github.io/`: витрина в корне (без `base`), демо в подпапках.
+- Все 5 проектов публикуются одним сайтом на GitHub Pages `https://mescout59.github.io/mescoutt/`: витрина в `base: '/mescoutt/'` (имя репозитория), демо в `/mescoutt/<проект>/`.
 - Общая сборка: `node scripts/build-all.mjs` в папке «Портфолио» → `_site/`. На GitHub это делает `.github/workflows/deploy.yml` при push в main.
 - Если меняется название, стиль или описание одной из работ, сверить карточку в `works`.
 

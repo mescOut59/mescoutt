@@ -5,7 +5,7 @@ grafit (барбершоп), pudra (салон красоты), mtvare (груз
 
 ## Стек
 Astro 5 · GSAP + ScrollTrigger (анимации при скролле) · Lenis (плавный скролл) · обычный CSS, без Tailwind.
-Сайт статический, одна страница. Команды: `npm install`, `npm run dev` (localhost:4321/grafit/), `npm run build` (в `dist/`).
+Сайт статический, одна страница. Команды: `npm install`, `npm run dev` (localhost:4321/mescoutt/grafit/), `npm run build` (в `dist/`).
 
 ## Структура
 | Что | Где |
@@ -23,10 +23,10 @@ Astro 5 · GSAP + ScrollTrigger (анимации при скролле) · Leni
 - Онлайн-запись: `site.bookingUrl` в `site.js`. Сейчас там заглушка `https://n000000.yclients.com/`, поэтому кнопки «Записаться» открывают демо-окно (`BookingModal.astro`). Реальная ссылка клиента вида `https://n123456.yclients.com/`.
 
 ## Публикация и кнопка «← Портфолио»
-- Все 5 проектов публикуются одним сайтом на GitHub Pages: витрина в корне `https://mescoutt.github.io/`, этот проект в `/grafit/`.
-- Поэтому в `astro.config.mjs` стоит `base: '/grafit/'`. Локально сайт открывается на `localhost:4321/grafit/`.
+- Все 5 проектов публикуются одним сайтом на GitHub Pages: витрина в корне `https://mescout59.github.io/mescoutt/`, этот проект в `/mescoutt/grafit/`.
+- Поэтому в `astro.config.mjs` стоит `base: '/mescoutt/grafit/'`. Локально сайт открывается на `localhost:4321/mescoutt/grafit/`.
 - Пути к своим файлам из `public/` писать с учётом base: `import.meta.env.BASE_URL` (так сделано для favicon и в `img()` в `site.js`). Голый `/файл` сломается.
-- `BackLink.astro` — кнопка «← Портфолио» внизу слева, ведёт на `site.portfolioUrl` (`'/'`). Пусто — кнопки нет.
+- `BackLink.astro` — кнопка «← Портфолио» внизу слева, ведёт на `site.portfolioUrl` (папка выше, т.е. витрина). Пусто — кнопки нет.
 - Общая сборка: `node scripts/build-all.mjs` в папке «Портфолио» → `_site/`. На GitHub это делает `.github/workflows/deploy.yml` при push в main.
 
 ## Правила
