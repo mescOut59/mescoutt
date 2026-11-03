@@ -293,8 +293,11 @@ function initAnimations() {
   });
 
   // ---------- адреса ----------
-  gsap.from('.place', {
-    x: -60, opacity: 0, duration: 1, stagger: 0.12, ease: 'power3.out',
+  // fromTo с явным x: 0, а не from(): у .place в CSS есть transition на transform,
+  // и при пересчёте ScrollTrigger GSAP мог прочитать «конечную» точку посреди перехода (-60px),
+  // из-за чего карточки оставались сдвинутыми влево
+  gsap.fromTo('.place', { x: -60, opacity: 0 }, {
+    x: 0, opacity: 1, duration: 1, stagger: 0.12, ease: 'power3.out', clearProps: 'transform,opacity',
     scrollTrigger: { trigger: '.places__grid', start: 'top 80%' },
   });
 
