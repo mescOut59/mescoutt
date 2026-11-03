@@ -78,11 +78,22 @@ function initRotator() {
     const from = words[current];
     current = (current + 1) % words.length;
     const to = words[current];
-    gsap.to(from, { yPercent: -110, duration: 0.7, ease: 'power3.in', onComplete: () => from.classList.remove('is-active') });
+    // остальные слова — гарантированно внизу, под маской (на случай прерванной анимации)
+    words.forEach((w) => {
+      if (w !== from && w !== to) {
+        gsap.killTweensOf(w);
+        gsap.set(w, { y: 0, yPercent: 110 });
+        w.classList.remove('is-active');
+      }
+    });
+    gsap.to(from, { y: 0, yPercent: -110, duration: 0.7, ease: 'power3.in', overwrite: true, onComplete: () => from.classList.remove('is-active') });
     to.classList.add('is-active');
-    gsap.fromTo(to, { yPercent: 110 }, { yPercent: 0, duration: 0.9, delay: 0.45, ease: 'power4.out' });
+    gsap.fromTo(to, { y: 0, yPercent: 110 }, { y: 0, yPercent: 0, duration: 0.9, delay: 0.45, ease: 'power4.out', overwrite: true });
+    // таймер GSAP, а не setInterval: в свёрнутой вкладке он спит вместе с анимацией
+    // и не копит переключения, которые потом срабатывают разом
+    gsap.delayedCall(2.6, next);
   };
-  setInterval(next, 2600);
+  gsap.delayedCall(2.6, next);
 }
 
 // ---------- запуск ----------
@@ -94,8 +105,10 @@ if (reduceMotion) {
 }
 
 function initAnimations() {
-  gsap.set('.rotator__word', { yPercent: 110 });
-  gsap.set('.rotator__word.is-active', { yPercent: 0 });
+  // y: 0 обязательно: иначе GSAP прочитает translateY(110%) из CSS как пиксели,
+  // прибавит их к yPercent, и слова будут останавливаться не там, накладываясь друг на друга
+  gsap.set('.rotator__word', { y: 0, yPercent: 110 });
+  gsap.set('.rotator__word.is-active', { y: 0, yPercent: 0 });
 
   // ---------- прелоадер ----------
   const intro = gsap.timeline({ defaults: { ease: 'power4.out' } });
